@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 4: File Paths & Boilerplate 🗂️</title>
+</head>
+<body>
+<header>
+  <h1>Day 4: HTML File Paths & Boilerplate 🗂️</h1>
+  <h2>Topics to be covered in this lecture:</h2>
+  <ol>
+    <li><a href="#file-paths">File Paths</a></li>
+    <li><a href="#absolute-relative">Absolute vs Relative Paths</a></li>
+    <li><a href="#html-boilerplate">HTML Boilerplate</a></li>
+    <li><a href="#linking-css-js">Linking CSS & JS</a></li>
+    <li><a href="#multipage-website">Multipage Website & Containers</a></li>
+    <li><a href="#common-errors">Common File Path Errors</a></li>
+    <li><a href="#glossary">Glossary of Terms</a></li>
+  </ol>
+  <nav>
+    <a href="../../main.html">Home</a> |
+    <a href="../day3_lists_tables/index.html">Day 3</a> |
+    <a href="../day5_forms/index.html">Day 5</a>
+  </nav>
+</header>
+<hr>
+
+<main>
+<section id="file-paths">
+  <h2>1.) File Paths</h2>
+  <p>A <b>file path</b> tells the browser where to find a file (HTML, CSS, JS, images).</p>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;img src="images/logo.png" alt="Logo"&gt;</code></pre>
+  <h4>Output:</h4>
+  <p>Displays an image called <b>logo.png</b> from the <i>images</i> folder.</p>
+  <img src="./diagrams/logo.png" alt="Coder Army Logo" height="100" width="200">
+</section>
+
+<hr>
+
+<section id="absolute-relative">
+  <h2>2.) Absolute vs Relative Paths</h2>
+
+  <h3>A) Relative File Paths (The Most Important for Your Projects)</h3>
+  <p>A relative file path gives directions to a file <b>starting from the location of the file you are currently in</b>. You will use this 99% of the time for linking your own files together (images, CSS, other HTML pages).</p>
+
+  <pre><code>my-website/
+├── index.html
+├── about.html
+│
+├── images/
+│   ├── logo.png
+│   └── hero.jpg
+│
+└── pages/
+    ├── contact.html
+    └── terms.html
+</code></pre>
+<br>
+
+  <h4>Scenario 1: Linking to a file in the SAME folder</h4>
+  <p>You are in <b>index.html</b> and want to link to <b>about.html</b> (both in the same folder).</p>
+  <pre><code>&lt;!-- Inside index.html --&gt;
+&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+</code></pre>
+
+  <h4>Scenario 2: Linking to a file in a SUB-FOLDER (Going Down)</h4>
+  <p>You are in <b>index.html</b> and want to display <b>logo.png</b> in the <i>images</i> folder.</p>
+  <pre><code>&lt;!-- Inside index.html --&gt;
+&lt;img src="images/logo.png" alt="My Website Logo"&gt;
+</code></pre>
+
+  <h4>Scenario 3: Linking to a file in a PARENT FOLDER (Going Up)</h4>
+  <p>You are in <b>contact.html</b> (inside pages/) and want to display <b>logo.png</b> (inside images/).</p>
+  <pre><code>&lt;!-- Inside pages/contact.html --&gt;
+&lt;img src="../images/logo.png" alt="My Website Logo"&gt;
+</code></pre>
+  <p><b>Explanation:</b></p>
+  <ul>
+    <li><code>../</code> takes you from <i>pages/</i> up to <i>my-website/</i></li>
+    <li><code>images/logo.png</code> then takes you down into <i>images/</i> folder to find the file</li>
+  </ul>
+<br>
+  <h3>B) Absolute File Paths</h3>
+  <p>An absolute file path gives the <b>full, complete URL</b> to a resource on the web. It starts with <code>http://</code> or <code>https://</code>.</p>
+  <p><b>When to use it:</b> Only for resources not on your own website.</p>
+  <pre><code>&lt;!-- External website --&gt;
+&lt;a href="https://www.google.com"&gt;Search on Google&lt;/a&gt;
+
+<a href="https://www.google.com">Search on Google</a>
+
+
+&lt;!-- Image hosted externally --&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5 Logo"&gt;
+
+<a href="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML% Logo">HTML5 SVG Logo</a>
+</code></pre>
+
+  <h3>The Critical "Why": Why not use absolute paths for your own files?</h3>
+  <p>Copying the full path from your computer (like <code>C:/Users/Nandan/Desktop/my-website/images/logo.png</code>) is a major mistake. It only works on your computer. Once uploaded to a server, it will break.</p>
+
+  <h4>Browser Sandbox Explanation</h4>
+  <ul>
+    <li><b>The Inmates:</b> HTML, CSS, JavaScript running inside the browser</li>
+    <li><b>The Prison Walls:</b> The browser itself</li>
+  </ul>
+  <p>The browser prevents code from freely accessing your computer’s file system for security reasons.</p>
+
+  <h4>Core Problem: Malicious Website</h4>
+  <p>Without this sandbox, a malicious website could try to read private files:</p>
+  <pre><code>&lt;!-- Malicious example --&gt;
+&lt;img src="C:/Users/Nandan/Documents/MyPrivatePasswords.txt"&gt;
+</code></pre>
+
+  <h3>Summary</h3>
+  <ol>
+    <li><b>For Your Own Files:</b> ALWAYS use relative paths
+      <ul>
+        <li>filename.html (same folder)</li>
+        <li>folder/filename.html (go down)</li>
+        <li>../filename.html (go up)</li>
+      </ul>
+    </li>
+    <li><b>For Other Websites’ Files:</b> ALWAYS use absolute paths
+      <ul>
+        <li>https://www.example.com/page.html</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<hr>
+
+<section id="html-boilerplate">
+  <h2>3.) HTML Boilerplate</h2>
+  <p>The boilerplate is the basic structure every HTML page should have. Let's break it down line by line:</p>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+  <h4>Line by Line Explanation:</h4>
+  <ol>
+    <li><b>&lt;!DOCTYPE html&gt;</b><br>
+      <small>Tells the browser to use HTML5 and standard-compliant mode, avoiding old "quirks mode". Must always be first.</small>
+    </li>
+    <li><b>&lt;html lang="en"&gt; ... &lt;/html&gt;</b><br>
+      <small>Root element of the page. <code>lang="en"</code> helps search engines and screen readers understand the language.</small>
+    </li>
+    <li><b>&lt;head&gt; ... &lt;/head&gt;</b><br>
+      <small>Contains metadata, links, and scripts that are not displayed directly on the page.</small>
+    </li>
+    <li><b>&lt;meta charset="UTF-8"&gt;</b><br>
+      <small>Specifies the character set. UTF-8 supports almost all languages and symbols.</small>
+    </li>
+    <li><b>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</b><br>
+      <small>Makes the page responsive on different devices by matching the screen width and setting initial zoom to 100%.</small>
+    </li>
+    <li><b>&lt;title&gt;...&lt;/title&gt;</b><br>
+      <small>Sets the page title for browser tabs, bookmarks, and search engines.</small>
+    </li>
+    <li><b>&lt;body&gt; ... &lt;/body&gt;</b><br>
+      <small>The visible content of your page—headings, paragraphs, images, links, etc.—goes here.</small>
+    </li>
+  </ol>
+
+  <h3>But, the Website Works Even Without Boilerplate</h3>
+  <p>Browsers are built to be <b>extremely forgiving</b>. They try to render something even if HTML is incomplete or missing tags.</p>
+
+  <h4>What Browsers Do with "Bad" HTML:</h4>
+  <ol>
+    <li><b>No &lt;!DOCTYPE html&gt;?</b> Browser enters <b>Quirks Mode</b> to mimic old non-standard behavior.</li>
+    <li><b>No &lt;html&gt; or &lt;body&gt; tags?</b> Browser automatically generates them internally to create a DOM structure.</li>
+    <li><b>No &lt;meta charset="UTF-8"&gt;?</b> Browser guesses character encoding. Special characters may break.</li>
+    <li><b>No &lt;title&gt;?</b> Browser uses the filename as the default tab title.</li>
+  </ol>
+
+  <h3>Why Use a Boilerplate Anyway?</h3>
+  <ul>
+    <li><b>Predictable Rendering:</b> Avoid quirks mode; CSS works consistently across browsers.</li>
+    <li><b>Proper Characters:</b> UTF-8 prevents broken symbols like €, —, ’.</li>
+    <li><b>Mobile-Friendly:</b> Viewport meta ensures a good experience on phones and tablets.</li>
+    <li><b>SEO & Accessibility:</b> Tags like <code>lang</code> and <code>title</code> improve search engine ranking and help screen readers.</li>
+  </ul>
+
+  <p><b>Conclusion:</b> You can build a page without boilerplate and it might appear fine, but a proper HTML boilerplate is the <b>foundation</b> for a professional, reliable, and future-proof website. Think of it as building a house on solid ground instead of on sand.</p>
+
+  <p><b>Tip:</b> In VS Code, type <b>!</b> and hit enter to generate the ready-made HTML boilerplate snippet automatically.</p>
+</section>
+
+
+
+<hr>
+
+<section id="linking-css-js">
+  <h2>4.) Linking CSS & JS</h2>
+  <p>You can add external CSS and JS files using <b>&lt;link&gt;</b> and <b>&lt;script&gt;</b> tags.</p>
+
+  <h3>Example:</h3>
+  <pre><code>&lt;!-- Link CSS --&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;
+
+&lt;!-- Link JS --&gt;
+&lt;script src="js/script.js"&gt;&lt;/script&gt;
+</code></pre>
+</section>
+
+<hr>
+
+<section id="multipage-website">
+  <h2>5.) Multipage Website & Containers</h2>
+
+  <h3>Multipage Website</h3>
+  <p>Break content into separate pages (home, about, contact). Use a consistent <b>header, footer, and navigation</b> for cohesion.</p>
+  <pre><code>&lt;nav&gt;
+  &lt;a href="index.html"&gt;Home&lt;/a&gt;
+  &lt;a href="about.html"&gt;About&lt;/a&gt;
+  &lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;
+<br>
+</code></pre>
+
+  <h3>&lt;div&gt; - The Generic Box</h3>
+  <p>Use <b>&lt;div&gt;</b> to group elements as a single unit:</p>
+  <pre><code>&lt;div class="profile-card"&gt;
+    &lt;img src="avatar.png"&gt;
+    &lt;h2&gt;Nandan Aghera&lt;/h2&gt;
+    &lt;p&gt;Loves to code and teach HTML.&lt;/p&gt;
+&lt;/div&gt;
+<br>
+</code></pre>
+
+  <h3>class & id - Labels for Boxes</h3>
+  <p><b>id:</b> unique identifier, only one per page.<br>
+     <b>class:</b> reusable label, can be used multiple times.</p>
+  <pre><code>&lt;div id="featured-profile" class="profile-card"&gt;...&lt;/div&gt;
+&lt;div class="profile-card"&gt;...&lt;/div&gt;
+</code></pre>
+  <p>CSS targeting:</p>
+  <b> <p>ID's are targeted by using the # and Classes are targeted by using .</p></b>
+  <pre><code>#featured-profile { border: 2px solid gold; }
+.profile-card { background: #eee; }
+<br>
+</code></pre>
+
+  <h3>&lt;span&gt; - Inline Highlighter</h3>
+  <p>Use <b>&lt;span&gt;</b> to style text within a line without breaking layout:</p>
+  <pre><code>&lt;p&gt;This is very &lt;span class="highlight"&gt;important&lt;/span&gt; information.&lt;/p&gt;
+    <br>
+</code></pre>
+
+  <h3>Semantic Tags</h3>
+  <ul>
+    <li><b>&lt;header&gt;</b>: Top section with logo and navigation</li>
+    <li><b>&lt;footer&gt;</b>: Bottom section with copyright info</li>
+    <li><b>&lt;main&gt;</b>: Main content unique to this page (one per page)</li>
+  </ul>
+</section>
+
+<hr>
+
+<section id="common-errors">
+  <h2>6.) Common File Path Errors</h2>
+  <ul>
+    <li>Incorrect folder name or typo</li>
+    <li>Wrong relative path (../ or ./ mistakes)</li>
+    <li>Forgetting file extension (.css, .js, .png)</li>
+    <li>Case sensitivity on some servers (Logo.png ≠ logo.png)</li>
+  </ul>
+</section>
+
+<hr>
+
+<section id="glossary">
+  <h2>7.) 📖 Glossary of Terms</h2>
+  <ol>
+    <li><b>File Path:</b> Location of a file on a computer or server.</li>
+    <li><b>Absolute Path:</b> Full path including domain/drive.</li>
+    <li><b>Relative Path:</b> Path relative to current file.</li>
+    <li><b>Boilerplate:</b> Basic HTML structure for all pages.</li>
+    <li><b>&lt;link&gt;:</b> Tag to include CSS files.</li>
+    <li><b>&lt;script&gt;:</b> Tag to include JS files.</li>
+    <li><b>Common Errors:</b> Mistakes in file paths that prevent files from loading.</li>
+  </ol>
+</section>
+</main>
+
+<a href="#top"><b>Back to top 👆</b></a>
+<footer>
+  <p>© 2025 Web Dev Course - Day 4</p>
+</footer>
+<br>
+</body>
+</html>

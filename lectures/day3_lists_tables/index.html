@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 3: Nested Lists & Tables 📋</title>
+</head>
+<body>
+<header>
+  <h1>Day 3: HTML Nested Lists & Tables 📋</h1>
+  <h2>Topics to be covered in this lecture:</h2>
+    <ol>
+    <li><a href="#nested-lists">Nested Lists</a></li>
+    <li><a href="#types-of-lists">Types of Lists (&lt;ul&gt;, &lt;ol&gt;)</a></li>
+    <li><a href="#html-tables">HTML Tables</a></li>
+    <li><a href="#nested-tables">Nested Tables</a></li>
+    <li><a href="#table-sections">Table Sections (&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;)</a></li>
+    <li><a href="#glossary">Glossary of Terms</a></li>
+  </ol>
+  <nav>
+    <a href="../../main.html">Home</a> |
+    <a href="../day2_html_basics/index.html">Day 2</a> |
+    <a href="../day4_file_path_boilerplate/index.html">Day 4</a>
+  </nav>
+</header>
+<hr>
+
+<main>
+ <section id="nested-lists">
+  <h2>1.) Nested Lists</h2>
+  <p>A <b>nested list</b> means placing a list inside another list item. This creates a hierarchy of content.</p>
+
+  <h3>Example (Unordered List)</h3>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Fruits
+    &lt;ul&gt;
+      &lt;li&gt;Apple&lt;/li&gt;
+      &lt;li&gt;Banana&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Vegetables
+    &lt;ul&gt;
+      &lt;li&gt;Leafy Greens&lt;/li&gt;
+      &lt;li&gt;Root Vegetables&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+  <h4>Output:</h4>
+  <ul>
+    <li>Fruits
+      <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+      </ul>
+    </li>
+    <li>Vegetables
+      <ul>
+        <li>Leafy Greens</li>
+        <li>Root Vegetables</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Example (Ordered List with Sub-steps)</h3>
+  <pre><code>&lt;ol&gt;
+  &lt;li&gt;Step 1
+    &lt;ol&gt;
+      &lt;li&gt;Substep A&lt;/li&gt;
+      &lt;li&gt;Substep B&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Step 2&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+
+  <h4>Output:</h4>
+  <ol>
+    <li>Step 1
+      <ol>
+        <li>Substep A</li>
+        <li>Substep B</li>
+      </ol>
+    </li>
+    <li>Step 2</li>
+  </ol>
+</section>
+
+  <hr>
+
+ 
+<section id="types-of-lists">
+  <h2>2.) Types of Lists</h2>
+  <ul>
+    <li><b>&lt;ul&gt;</b>: Unordered list</li>
+    <li><b>&lt;ol&gt;</b>: Ordered list</li>
+  </ul>
+
+  <h3>Example: Unordered List (&lt;ul&gt;)</h3>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Tea&lt;/li&gt;
+  &lt;li&gt;Coffee&lt;/li&gt;
+  &lt;li&gt;Water&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+  <h4>Output:</h4>
+  <ul>
+    <li>Tea</li>
+    <li>Coffee</li>
+    <li>Water</li>
+  </ul>
+
+  <h3>Example: Ordered List (&lt;ol&gt;)</h3>
+  <pre><code>&lt;ol&gt;
+  &lt;li&gt;Wake up&lt;/li&gt;
+  &lt;li&gt;Brush Teeth&lt;/li&gt;
+  &lt;li&gt;Have Breakfast&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+  <h4>Output:</h4>
+  <ol>
+    <li>Wake up</li>
+    <li>Brush Teeth</li>
+    <li>Have Breakfast</li>
+  </ol>
+
+</section>
+
+  <hr>
+
+ <section id="html-tables">
+  <h2>3.) HTML Tables</h2>
+  <p>A <b>&lt;table&gt;</b> is used to display data in rows and columns.</p>
+
+  <h3>Basic Example</h3>
+  <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nandan&lt;/td&gt;
+    &lt;td&gt;21&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Rohit&lt;/td&gt;
+    &lt;td&gt;27&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+  <h4>Output:</h4>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>Nandan</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>Rohit</td>
+      <td>27</td>
+    </tr>
+  </table>
+</section>
+
+  <hr>
+
+ <section id="nested-tables">
+  <h2>4.) Nested Tables</h2>
+  <p>You can place a table inside a &lt;td&gt; cell of another table.</p>
+
+  <h3>Example</h3>
+  <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Group&lt;/th&gt;
+    &lt;th&gt;Members&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Group A&lt;/td&gt;
+    &lt;td&gt;
+      &lt;table border="1"&gt;
+        &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Role&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Rohit&lt;/td&gt;&lt;td&gt;Leader&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Nandan&lt;/td&gt;&lt;td&gt;Member&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+  <h4>Output:</h4>
+  <table border="1">
+    <tr>
+      <th>Group</th>
+      <th>Members</th>
+    </tr>
+    <tr>
+      <td>Group A</td>
+      <td>
+        <table border="1">
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+          </tr>
+          <tr>
+            <td>Rohit</td>
+            <td>Leader</td>
+          </tr>
+          <tr>
+            <td>Nandan</td>
+            <td>Member</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</section>
+
+  <hr>
+
+ <section id="table-sections">
+  <h2>5.) Table Sections</h2>
+  <p>Tables can be divided into sections for clarity:</p>
+  <ul>
+    <li><b>&lt;thead&gt;</b>: Table header rows</li>
+    <li><b>&lt;tbody&gt;</b>: Main body rows</li>
+    <li><b>&lt;tfoot&gt;</b>: Footer rows</li>
+    <li><b>&lt;caption&gt;</b>: Title/description for the table</li>
+  </ul>
+
+  <h3>Example</h3>
+  <pre><code>&lt;table border="1"&gt;
+  &lt;caption&gt;Student Marks&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Marks&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Rohit&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Nandan&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td&gt;175&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</code></pre>
+
+  <h4>Output:</h4>
+  <table border="1">
+    <caption>Student Marks</caption>
+    <thead>
+      <tr><th>Name</th><th>Marks</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Rohit</td><td>90</td></tr>
+      <tr><td>Nandan</td><td>85</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>Total</td><td>175</td></tr>
+    </tfoot>
+  </table>
+</section>
+
+  <hr>
+
+  <!-- Glossary at the end -->
+ <section id="glossary">
+    <h2>6.)📖 Glossary of Terms</h2>
+    <ol>
+      <li><b>Nested List:</b> A list placed inside another list item.</li>
+      <li><b>&lt;ul&gt;:</b> Unordered/bulleted list.</li>
+      <li><b>&lt;ol&gt;:</b> Ordered/numbered list.</li>
+      <li><b>&lt;dl&gt;:</b> Definition list, used with &lt;dt&gt; and &lt;dd&gt;.</li>
+      <li><b>&lt;table&gt;:</b> Element to display tabular data.</li>
+      <li><b>&lt;thead&gt;:</b> Table header section.</li>
+      <li><b>&lt;tbody&gt;:</b> Table body section.</li>
+      <li><b>&lt;tfoot&gt;:</b> Table footer section.</li>
+      <li><b>&lt;tr&gt;:</b> Table row.</li>
+      <li><b>&lt;th&gt;:</b> Table header cell.</li>
+      <li><b>&lt;td&gt;:</b> Table data cell.</li>
+      <li><b>&lt;caption&gt;:</b> Title or description of a table.</li>
+    </ol>
+  </section>
+</main>
+
+<a href="#top"><b>Back to top 👆</b></a>
+<footer>
+  <p>© 2025 Web Dev Course - Day 3</p>
+</footer>
+<br>
+</body>
+</html>

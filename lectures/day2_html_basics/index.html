@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 2: HTML Basics 📝</title>
+</head>
+<body>
+<header>
+  <h1>Day 2: HTML Basics | Introduction to HyperText Markup Language 📝</h1>
+  <h2>Topics to be covered in this lecture:</h2>
+  <ol>
+    <li><a href="#html">What is HTML?</a></li>
+    <li><a href="#install">Install Required Software</a></li>
+    <li><a href="#headings">Headings: &lt;h1&gt; to &lt;h6&gt;</a></li>
+    <li><a href="#paragraphs">Paragraphs: &lt;p&gt;</a></li>
+    <li><a href="#hr-br">Horizontal Rules & Line Breaks</a></li>
+    <li><a href="#lists">Lists: &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</a></li>
+    <li><a href="#links">Anchor Tag & Hyperlinks</a></li>
+    <li><a href="#images">Images: &lt;img&gt;</a></li>
+    <li><a href="#glossary">Glossary of Terms</a></li>
+</ol>
+  <nav>
+    <a href="../../main.html">Home</a> | 
+    <a href="../day1_internet_working/index.html">Day 1</a> | 
+    <a href="../day3_lists_tables/index.html">Day 3</a>
+  </nav>
+</header>
+<hr>
+
+<main>
+
+  <section id="html">
+    <h2>1.) What is HTML?</h2>
+    <p>
+      HTML stands for <strong>HyperText Markup Language</strong>. It is the standard language used to create and structure the content of a webpage.
+    </p>
+    <ul>
+      <li><b>HyperText:</b> Ability to create links that connect web pages, making the web a connected "web" of information.</li>
+      <li><b>Markup Language:</b> Uses "tags" to structure content. You "mark up" plain text with meaning and structure.</li>
+    </ul>
+    <p>HTML elements form the building blocks of web pages. Each element has a start tag, content, and an end tag (except self-closing tags like &lt;img&gt; and &lt;br&gt;).</p>
+    <p>Example of a simple HTML element:</p>
+    <pre>&lt;p&gt;This is a paragraph.&lt;/p&gt;</pre>
+    <p>First Website: <a href="https://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">https://info.cern.ch/hypertext/WWW/TheProject.html</a></p>
+   
+  </section>
+  <hr>
+
+  <section id="install">
+    <h2>2.) Install Required Software</h2>
+    <ol>
+      <li><b>Visual Studio Code:</b> Free software to write HTML, CSS, and JavaScript.<br>
+        <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a>
+        <p>VS Code provides syntax highlighting, code suggestions, and extensions to make coding faster.</p>
+      </li>
+      <li><b>Recommended Extensions:</b>
+        <ul>
+          <li>Live Preview - to see your changes instantly in a browser</li>
+          <li>Prettier - automatically formats your code for better readability</li>
+          <li>Live Server - launches a local server and reloads your page on save</li>
+        </ul>
+      </li>
+    </ol>
+   
+  </section>
+  <hr>
+
+  <section id="headings">
+    <h2>3.) Headings: &lt;h1&gt; to &lt;h6&gt;</h2>
+    <p>Headings define titles and subtitles, creating a logical hierarchy on your webpage:</p>
+
+<pre>
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;
+</pre>
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+
+ 
+    <ul>
+      <li><b>&lt;h1&gt;:</b> Most important heading, usually used once per page.</li>
+      <li><b>&lt;h2&gt;:</b> Major section heading.</li>
+      <li><b>&lt;h3&gt;:</b> Sub-section under &lt;h2&gt;.</li>
+      <li>&lt;h4&gt; to &lt;h6&gt;: Used for sub-subsections and less important headings.</li>
+    </ul>
+  
+  </section>
+  <hr>
+
+  <section id="paragraphs">
+    <h2>4.) Paragraphs: &lt;p&gt;</h2>
+    <p>Paragraphs group sentences and blocks of text together:</p>
+    <p>This is the first paragraph. It contains several sentences about a topic.</p>
+    <p>This is a second, separate paragraph. Browsers display space between paragraphs automatically.</p>
+    <p><b>Example:</b></p>
+    <pre>&lt;p&gt;HTML makes it easy to structure your content.&lt;/p&gt;</pre>
+   
+  </section>
+  <hr>
+
+  <section id="hr-br">
+    <h2>5.) Horizontal Rules & Line Breaks</h2>
+    <p>The <b>&lt;hr&gt;</b> tag defines a thematic break:</p>
+    <p>This is the first topic.</p>
+    <hr />
+    <p>This is a completely different topic.</p>
+
+    <p>The <b>&lt;br&gt;</b> tag creates a line break:</p>
+    <p>My Name is Nandan Aghera<br>
+       I'm from Noida</p>
+   
+  </section>
+  <hr>
+
+  <section id="lists">
+    <h2>6.) Lists: &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</h2>
+    <p>Lists are used to group related items:</p>
+
+    <h3>Unordered List:</h3>
+    <ul>
+      <li>Tea Bag</li>
+      <li>Water</li>
+      <li>Sugar</li>
+      <li>Milk</li>
+    </ul>
+
+    <h3>Ordered List:</h3>
+    <ol>
+      <li>First, boil the water in a kettle.</li>
+      <li>Add tea bag, sugar and milk into it.</li>
+      <li>Keep boiling it for 5 minutes.</li>
+      <li>Serve the tea by pouring it into a cup.</li>
+    </ol>
+    <pre>
+&lt;ul&gt;
+  &lt;li&gt;Fruits
+    &lt;ul&gt;
+      &lt;li&gt;Apple&lt;/li&gt;
+      &lt;li&gt;Banana&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+    </pre>
+  </section>
+  <hr>
+
+  <section id="links">
+    <h2>7.) Anchor Tag & Hyperlinks</h2>
+    <p>The <b>&lt;a&gt;</b> tag creates clickable links:</p>
+    <a href="https://www.coderarmy.in/" target="_blank">Visit Coder Army</a>
+
+    <p><b>Target Attribute:</b></p>
+    <ul>
+      <li>_self: Opens link in same window/tab (default)</li>
+      <li>_blank: Opens link in a new window/tab</li>
+    </ul>
+    <p><b>Example of internal link:</b></p>
+    <pre>&lt;a href="about.html"&gt;About Us&lt;/a&gt;</pre>
+    
+    <pre>&lt;a href="https://www.coderarmy.in/" title="Go to Coder Army website"&gt;Visit Coder Army&lt;/a&gt;</pre>
+  </section>
+  <hr>
+
+  <section id="images">
+    <h2>8.) Images: &lt;img&gt;</h2>
+    <p>The <b>&lt;img&gt;</b> tag embeds images:</p>
+    <img src="../day2_html_basics/diagrams/dog.jpg" alt="Dog Image" width="300" height="300">
+    <p>Attributes:</p>
+    <ul>
+      <li>src: Path to image (mandatory)</li>
+      <li>alt: Alternative text for accessibility</li>
+      <li>width & height: Specify size of the image</li>
+    </ul>
+    
+  </section>
+  <hr>
+
+  <!-- Glossary at the end -->
+  <section id="glossary">
+    <h2>9.) 📖 Glossary of Terms</h2>
+    <ol>
+      <li><strong>HTML:</strong> HyperText Markup Language, used to structure web content.</li>
+      <li><strong>HyperText:</strong> Links that connect web pages together.</li>
+      <li><strong>Markup Language:</strong> Uses tags to give meaning and structure to text.</li>
+      <li><strong>Tag:</strong> An element that defines content and structure in HTML.</li>
+      <li><strong>Attribute:</strong> Provides additional information about an HTML element (like src or href).</li>
+      <li><strong>Paragraph:</strong> A block of text enclosed in &lt;p&gt; tags.</li>
+      <li><strong>Heading:</strong> Titles/subtitles in HTML (&lt;h1&gt; to &lt;h6&gt;).</li>
+      <li><strong>List:</strong> A collection of items, ordered (&lt;ol&gt;) or unordered (&lt;ul&gt;).</li>
+      <li><strong>Anchor:</strong> The &lt;a&gt; tag used to create hyperlinks.</li>
+      <li><strong>Image:</strong> The &lt;img&gt; tag used to display pictures.</li>
+      <li><strong>Horizontal Rule:</strong> The &lt;hr&gt; tag used to separate content.</li>
+      <li><strong>Line Break:</strong> The &lt;br&gt; tag used to start a new line.</li>
+    </ol>
+  </section>
+
+</main>
+
+<a href="#top"><b>Back to top 👆</b></a>
+<footer>
+  <p>© 2025 Web Dev Course - Day 2</p>
+</footer>
+<br>
+
+</body>
+</html>

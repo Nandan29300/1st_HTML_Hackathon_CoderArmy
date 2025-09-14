@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 5: HTML Forms 📝</title>
+<link rel="stylesheet" href="../css/style.css" />
+<script src="../js/script.js" defer></script>
+</head>
+<body>
+
+<main>
+<h1>Day 5: HTML Forms From Beginner to Advanced 📝</h1>
+<h2>Topics to be covered in this lecture:</h2>
+<ol>
+  <li><a href="#forms-principle">Forms: The Web Needs to Be a Two-Way Street</a></li>
+  <li><a href="#input-label-id">Text Inputs and Labels</a></li>
+  <li><a href="#radio-checkbox">Radio Buttons and Checkboxes</a></li>
+  <li><a href="#textarea-select">Textarea and Dropdown</a></li>
+  <li><a href="#advanced-inputs">Advanced Input Types (HTML5)</a></li>
+  <li><a href="#submit-button">Submit Button & Better Buttons</a></li>
+  <li><a href="#full-form-example">Complete Example Form</a></li>
+  <li><a href="#glossary">Glossary of Terms</a></li>
+</ol>
+
+<header>
+  
+  <nav>
+    <a href="../../main.html">Home</a> |
+    <a href="../day4_file_path_boilerplate/index.html">Day 4</a> |
+    <a href="../day6_media_deploy/index.html">Day 6</a>
+  </nav>
+</header>
+<hr>
+
+<section id="forms-principle">
+<h2>1.) Forms: The Web Needs to Be a Two-Way Street</h2>
+<p>
+A website isn't just for reading. Forms let the user <strong>send information</strong> to the server, which is essential for logging in, searching, buying, posting comments, or messaging.
+</p>
+<p><strong>Core Problem:</strong> How do we reliably display fields, collect data, send it to the server, and specify how it is sent?</p>
+<p><strong>Solution:</strong> Use the HTML <code>&lt;form&gt;</code> element as the container for user input.</p>
+</section>
+
+<hr>
+
+<section id="input-label-id">
+<h2>2.) Text Inputs, Labels, and IDs</h2>
+<p>The <code>&lt;input&gt;</code> element creates an input field. The <code>type="text"</code> attribute makes it a standard text box.</p>
+
+<pre><code>&lt;input type="text"&gt;</code></pre>
+
+<h3>Adding a Label</h3>
+<p>Labels explain the input’s purpose. Use <code>&lt;label&gt;</code> and connect it to the input using <code>for</code> and <code>id</code>.</p>
+
+<pre><code>&lt;label for="firstName"&gt;First Name:&lt;/label&gt;
+&lt;input type="text" id="firstName" name="firstName"&gt;</code></pre>
+
+<p>Clicking the label focuses the input; screen readers announce the label with the field.</p>
+
+<h3>Example:</h3>
+<form>
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+  <br><br>
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+</form>
+</section>
+
+<hr>
+<section id="radio-checkbox">
+<h2>3.) Radio Buttons & Checkboxes</h2>
+
+<h3>Radio Buttons (Select One)</h3>
+<p>Used when the user can choose <strong>only one option</strong>. All buttons in the same group share the same <code>name</code>.</p>
+
+<p><b>Sample Code is shown below:</b></p>
+<pre><code>
+&lt;form&gt;
+  &lt;label&gt;T-Shirt Size:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="radio" id="sizeS" name="shirtSize" value="small"&gt;
+  &lt;label for="sizeS"&gt;Small&lt;/label&gt;&lt;br&gt;
+
+  &lt;input type="radio" id="sizeM" name="shirtSize" value="medium"&gt;
+  &lt;label for="sizeM"&gt;Medium&lt;/label&gt;&lt;br&gt;
+
+  &lt;input type="radio" id="sizeL" name="shirtSize" value="large"&gt;
+  &lt;label for="sizeL"&gt;Large&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p><b>Output is shown below:</b></p>
+<form>
+  <label>T-Shirt Size:</label><br>
+  <input type="radio" id="sizeS" name="shirtSize" value="small">
+  <label for="sizeS">Small</label><br>
+
+  <input type="radio" id="sizeM" name="shirtSize" value="medium">
+  <label for="sizeM">Medium</label><br>
+
+  <input type="radio" id="sizeL" name="shirtSize" value="large">
+  <label for="sizeL">Large</label><br><br>
+</form>
+<br>
+
+<h3>Checkboxes (Select Many)</h3>
+<p>Used when the user can select <strong>multiple options</strong>. Checkboxes in the same category share the same <code>name</code> but different <code>value</code>.</p>
+<p><b>Sample Code is shown below:</b></p>
+<pre><code>
+&lt;form&gt;
+  &lt;label&gt;Pizza Toppings:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="checkbox" id="toppingPep" name="toppings" value="pepperoni"&gt;
+  &lt;label for="toppingPep"&gt;Pepperoni&lt;/label&gt;&lt;br&gt;
+
+  &lt;input type="checkbox" id="toppingMush" name="toppings" value="mushrooms"&gt;
+  &lt;label for="toppingMush"&gt;Mushrooms&lt;/label&gt;&lt;br&gt;
+
+  &lt;input type="checkbox" id="toppingOni" name="toppings" value="onions"&gt;
+  &lt;label for="toppingOni"&gt;Onions&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p><b>Output is shown below:</b></p>
+<form>
+  <label>Pizza Toppings:</label><br>
+  <input type="checkbox" id="toppingPep" name="toppings" value="pepperoni">
+  <label for="toppingPep">Pepperoni</label><br>
+
+  <input type="checkbox" id="toppingMush" name="toppings" value="mushrooms">
+  <label for="toppingMush">Mushrooms</label><br>
+
+  <input type="checkbox" id="toppingOni" name="toppings" value="onions">
+  <label for="toppingOni">Onions</label><br><br>
+</form>
+</section>
+
+<hr>
+
+<section id="textarea-select">
+<h2>4.) Textarea & Dropdown Select</h2>
+
+<h3>Textarea for Multi-Line Input</h3>
+<p>Use <code>&lt;textarea&gt;</code> for long text input like comments or addresses.</p>
+<p><b>Sampel Code is shown below:</b></p>
+<pre><code>
+&lt;form&gt;
+  &lt;label for="comments"&gt;Any special instructions?&lt;/label&gt;&lt;br&gt;
+  &lt;textarea id="comments" name="comments" rows="4" cols="50" placeholder="Write here..."&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p><b>Output is shown below:</b></p>
+
+<form>
+  <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Write here..."></textarea>
+</form>
+
+<br>
+
+
+
+<h3>Dropdown Select</h3>
+<p>Use <code>&lt;select&gt;</code> for long lists, with individual <code>&lt;option&gt;</code> items.</p>
+<p><b>Sample code is shown below:</b></p>
+<pre><code>
+&lt;form&gt;
+  &lt;label for="country"&gt;Country:&lt;/label&gt;&lt;br&gt;
+  &lt;select id="country" name="country"&gt;
+    &lt;optgroup label="Asia"&gt;
+      &lt;option value="in"&gt;India&lt;/option&gt;
+      &lt;option value="cn"&gt;China&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="Europe"&gt;
+      &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+      &lt;option value="fr"&gt;France&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="America"&gt;
+      &lt;option value="us"&gt;USA&lt;/option&gt;
+      &lt;option value="ca"&gt;Canada&lt;/option&gt;
+    &lt;/optgroup&gt;
+  &lt;/select&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p><b>Output is shown below:</b></p>
+<form>
+  <label for="country">Country:</label><br>
+  <select id="country" name="country">
+    <optgroup label="Asia">
+      <option value="in">India</option>
+      <option value="cn">China</option>
+    </optgroup>
+    <optgroup label="Europe">
+      <option value="uk">United Kingdom</option>
+      <option value="fr">France</option>
+    </optgroup>
+    <optgroup label="America">
+      <option value="us">USA</option>
+      <option value="ca">Canada</option>
+    </optgroup>
+  </select>
+</form>
+</section>
+
+<hr>
+
+<section id="advanced-inputs">
+<h2>5.) Advanced Input Types (HTML5)</h2>
+
+<form>
+  <label for="userPass">Password:</label><br>
+  <input type="password" id="userPass" name="userPassword" required><br><br>
+
+  <label for="userAge">Age (18-99):</label><br>
+  <input type="number" id="userAge" name="age" min="18" max="99"><br><br>
+
+  <label for="birthDate">Date of Birth:</label><br>
+  <input type="date" id="birthDate" name="dob"><br><br>
+
+  <label for="favColor">Favorite Color:</label><br>
+  <input type="color" id="favColor" name="favColor"><br><br>
+
+  <label for="rangeExample">Select a value:</label><br>
+  <input type="range" id="rangeExample" name="rangeExample" min="0" max="100"><br><br>
+
+  <label for="uploadFile">Upload File:</label><br>
+  <input type="file" id="uploadFile" name="uploadFile"><br><br>
+</form>
+</section>
+
+<hr>
+
+<section id="submit-button">
+<h2>6.) Better Submit Button</h2>
+<p>Instead of <code>&lt;input type="submit"&gt;</code>, use <code>&lt;button type="submit"&gt;</code> for flexibility:</p>
+
+<form>
+  <button type="submit">
+    <strong>Submit</strong> Form
+  </button>
+</form>
+</section>
+
+<hr>
+
+<section id="full-form-example">
+<h2>7.) Complete Example Form</h2>
+<form action="#" method="post">
+  <fieldset>
+    <legend>Personal Information</legend>
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" name="firstName" required><br><br>
+
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" name="lastName" required><br><br>
+
+    <label for="userPass">Password:</label><br>
+    <input type="password" id="userPass" name="userPassword" required><br><br>
+
+    <label for="userAge">Age (18-99):</label><br>
+    <input type="number" id="userAge" name="age" min="18" max="99"><br><br>
+
+    <label for="birthDate">Date of Birth:</label><br>
+    <input type="date" id="birthDate" name="dob"><br><br>
+  </fieldset>
+
+  <fieldset>
+    <legend>Preferences</legend>
+    <label>T-Shirt Size:</label><br>
+    <input type="radio" id="sizeS" name="shirtSize" value="small">
+    <label for="sizeS">Small</label><br>
+
+    <input type="radio" id="sizeM" name="shirtSize" value="medium">
+    <label for="sizeM">Medium</label><br>
+
+    <input type="radio" id="sizeL" name="shirtSize" value="large">
+    <label for="sizeL">Large</label><br><br>
+
+    <label>Pizza Toppings:</label><br>
+    <input type="checkbox" id="toppingPep" name="toppings" value="pepperoni">
+    <label for="toppingPep">Pepperoni</label><br>
+
+    <input type="checkbox" id="toppingMush" name="toppings" value="mushrooms">
+    <label for="toppingMush">Mushrooms</label><br>
+
+    <input type="checkbox" id="toppingOni" name="toppings" value="onions">
+    <label for="toppingOni">Onions</label><br><br>
+
+    <label for="country">Country:</label><br>
+    <select id="country" name="country">
+      <optgroup label="Asia">
+        <option value="in">India</option>
+        <option value="cn">China</option>
+      </optgroup>
+      <optgroup label="Europe">
+        <option value="uk">United Kingdom</option>
+        <option value="fr">France</option>
+      </optgroup>
+      <optgroup label="America">
+        <option value="us">USA</option>
+        <option value="ca">Canada</option>
+      </optgroup>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>Additional</legend>
+    <label for="comments">Any special instructions?</label><br>
+    <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Write here..."></textarea><br><br>
+
+    <small>* All required fields must be filled before submission.</small><br><br>
+
+    <button type="submit"><strong>Submit</strong> Form</button>
+  </fieldset>
+</form>
+</section>
+<br>
+<hr>
+<section id="glossary">
+  <h2>8.)📖 Glossary of Terms</h2>
+  <ol>
+  <li><b><code>&lt;form&gt;</code>:</b> Container element that collects user input and sends it to the server.</li>
+  <li><b><code>&lt;input&gt;</code>:</b> Used to create different types of input fields (text, password, number, etc.).</li>
+  <li><b><code>&lt;label&gt;</code>:</b> Describes the purpose of an input field and improves accessibility.</li>
+  <li><b><code>id</code> / <code>for</code>:</b> <code>id</code> uniquely identifies an element. The <code>for</code> attribute in <code>&lt;label&gt;</code> links to the matching input <code>id</code>.</li>
+  <li><b>Radio Buttons:</b> Allow the user to select only one option from a group (same <code>name</code>).</li>
+  <li><b>Checkboxes:</b> Allow the user to select multiple options.</li>
+  <li><b><code>&lt;textarea&gt;</code></b>: Multi-line text input for comments, addresses, or longer messages.</li>
+  <li><b><code>&lt;select&gt;</code> / <code>&lt;option&gt;</code>:</b> Dropdown menu to choose from a list of options. <code>&lt;optgroup&gt;</code> groups related options.</li>
+  <li><b><code>&lt;fieldset&gt;</code> / <code>&lt;legend&gt;</code>:</b> Group related inputs together with a title for better structure.</li>
+  <li><b><code>required</code>:</b> An attribute that forces the user to fill in the field before submission.</li>
+  <li><b><code>&lt;button type="submit"&gt;</code>:</b> Submits the form. More flexible than <code>&lt;input type="submit"&gt;</code>.</li>
+</ol>
+
+</section>
+
+</main>
+<a href="#top"><b>Back to top 👆</b></a>
+<footer>
+  <p>© 2025 Web Dev Course - Day 5</p>
+</footer>
+
+</body>
+</html>

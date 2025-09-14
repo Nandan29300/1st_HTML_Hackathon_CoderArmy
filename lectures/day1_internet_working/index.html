@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 1: Internet Working 🌐</title>
+</head>
+<body>
+<header>
+  <h1>Day 1: Introduction To Web Development | Internet Working 🌐</h1>
+  <h2>Topics to be covered in this lecture:</h2>
+   <ol>
+    <li><a href="#internet">How Does Internet Work ?</a></li>
+    <li><a href="#ip">IP Address</a></li>
+    <li><a href="#mac">MAC Address</a></li>
+    <li><a href="#port">Port Number</a></li>
+    <li><a href="#dns">DNS (Domain Name System)</a></li>
+    <li><a href="#webdev">What is Web Development</a></li>
+    <li><a href="#glossary">Glossary of Terms</a></li>
+</ol>
+  <nav>
+    <a href="../../main.html">Home</a> | 
+    <a href="../day2_html_basics/index.html">Day 2</a> | 
+    <a href="../day3_lists_tables/index.html">Day 3</a>
+  </nav>
+</header>
+<hr>
+
+<main>
+  <section id="internet">
+    
+    <h2>1.) Understanding How Internet Works</h2>
+    <h3>How Does Internet Work ?</h3>
+    <h4> What is the Internet?</h4>
+    <p>The Internet is a global network of computers and devices connected together. It allows them to communicate, share information, and send data using a common set of rules called protocols (like TCP/IP).
+    <br><br>
+
+      <h4>How It Works</h4> 
+
+<ol>
+  <li><b>Your Device Connects</b></li>
+
+  You connect your phone, laptop, or PC to the internet through Wi-Fi, mobile data, or Ethernet.
+
+  This connection is provided by your ISP (Internet Service Provider) (like Jio, Airtel, BSNL).
+
+  <li><b>IP Address</b></li>
+
+  Every device on the internet gets a unique ID called an IP address (like your home address, but for computers).
+
+  Example: 142.250.193.142 (which belongs to Google).
+
+  <li><b>Domain Names & DNS</b></li>
+
+  Humans prefer names like google.com instead of numbers.
+
+  The DNS (Domain Name System) works like a phonebook: it converts the name into the right IP address so your computer
+  knows where to go.
+
+  <li><b>Data Transmission (Packets)</b></li>
+
+  Information is broken into small pieces called packets.
+
+  These packets travel across the internet through routers (like post offices that direct traffic).
+
+  Each packet may take a different route, but they reassemble at the destination.
+
+  <li><b>Protocols (Rules of Communication)</b></li>
+  <ol>
+    <li>TCP (Transmission Control Protocol) makes sure all packets arrive safely and in order.</li>
+    <li>IP (Internet Protocol) ensures packets know the sender and receiver addresses.</li>
+  </ol>
+
+
+
+
+
+  Together, TCP/IP is like the language of the internet.
+
+  <li><b>Servers & Clients</b></li>
+
+  When you open google.com: Your computer (client) requests data from Google’s servers. The server sends back the web page data. That’s how you see websites, videos, etc.
+
+  <li><b>Physical Infrastructure</b></li>
+
+  The internet runs on real things:
+  Fiber optic cables (under the ocean and underground). Satellites & towers for wireless connections. Data centers that store and deliver content.
+
+</ol>
+<br>
+    <h4>The Key Principles behind this:</h4> 
+
+    <blockquote>
+      <p><strong>Principle 1: The Need to Share Information</strong><br>
+      Computers need a way to <b>share information</b> electronically, replacing physical transfer.</p>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Principle 2: The Problem of Scale</strong><br>
+      Connecting each computer to every other does not scale well; hence <b>local switches.</b></p>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Principle 3: Connecting Networks</strong><br>
+      Routers connect networks creating the “network of networks” called the Internet.</p>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Principle 4: The Problem of Finding Anyone (Addressing)</strong><br>
+      Every device on the internet needs a unique <b>IP Address</b> so messages can find the right destination.</p>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Principle 5: The Problem of Reliability and Fairness</strong><br>
+      Large data is split into small <b>packets</b> using <b>TCP/IP</b> to ensure reliable and fair delivery.</p>
+    </blockquote>
+    <br>
+ <img src="./diagrams/internet.png" alt="Internet Working" width="600" height="500">
+
+    <h3>Network Diagram (ASCII Art)</h3>
+    <pre>
+         +-------+           +-------+
+         | PC A  |-----------| Switch|----+
+         +-------+           +-------+    |
+                                        Router
+         +-------+           +-------+    |
+         | PC B  |-----------| Switch|----+
+         +-------+           +-------+
+
+         Internet of Networks Connected by Routers
+    </pre>
+    
+   
+  </section>
+  <hr>
+
+  <section id="ip">
+    <h2>2.) IP Addressing</h2>
+    <h3>IPv4, IPv6, Public, and Private</h3>
+    <ol>
+      <li><strong>IPv4:</strong> 32-bit address; ~4.3 billion addresses.</li>
+      <ul>
+  <li>
+    An <b>IPv4 (Internet Protocol version 4)</b> address is the classic IP address format most people are familiar with.
+  </li>
+  <li>
+    <b>Structure:</b> It’s a 32-bit number. To make it readable for humans, it is divided into four 8-bit sections, each written as a decimal number from 0 to 255.
+  </li>
+  <li>
+    <b>Example:</b> 172.217.16.142 (one of Google’s addresses)
+  </li>
+  <li>
+    <b>The Big Problem (Why it matters):</b> A 32-bit number means there is a hard limit on the total number of possible addresses: 2<sup>32</sup>, which is about 4.3 billion.
+  </li>
+</ul>
+
+      <li><strong>IPv6:</strong> 128-bit address; ~340 undecillion addresses.</li>
+      <ul>
+  <li><b>IPv6 (Internet Protocol version 6)</b> is the next generation of the Internet Protocol. Its primary purpose was to solve the address exhaustion problem of IPv4.</li>
+  
+  <li>The fundamental difference is the size of the address:
+    <ul>
+      <li><b>IPv4:</b> Uses a <b>32-bit</b> address, giving us ~4.3 billion unique addresses.</li>
+      <li><b>IPv6:</b> Uses a <b>128-bit</b> address.</li>
+    </ul>
+  </li>
+
+  <li><b>What Does an IPv6 Address Look Like?</b></li>
+  
+  <li>Because it's so long, the format is different. It uses <b>hexadecimal</b> (numbers 0-9 and letters a-f) instead of just decimal numbers.</li>
+
+  <li>An example of a full IPv6 address:<br>
+    <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>
+  </li>
+</ul>
+
+
+
+
+
+
+
+      <li><strong>Public IP:</strong> Globally unique address on the internet.</li>
+<ul>
+  <li>A <b>Public IP address</b> is your global, unique address on the internet.</li>
+  <li>It must be globally unique — no two devices on the internet can have the same public IP address at the same time.</li>
+</ul>
+
+      <li><strong>Private IP:</strong> Internal local network address.</li>
+<ul>
+  <li>A <b>Private IP address</b> is a local address used only within your own private network (e.g., home Wi-Fi, office network).</li>
+  <li><b>10.0.0.0 - 10.255.255.255</b> - Used by large corporations</li>
+  <li><b>172.16.0.0 - 172.31.255.255</b> - Used by medium-sized networks</li>
+  <li><b>192.168.0.0 - 192.168.255.255</b> - Most common for home networks</li>
+</ul>
+
+    </ol>
+
+    <img src="./diagrams/IP_address.png" alt="Internet Working" width="500" height="500">
+
+  </section>
+
+  <section>
+    <h3>Protocols Table</h3>
+    <table border="1" summary="Common network protocols and descriptions">
+      <caption>Common Network Protocols</caption>
+      <thead>
+        <tr>
+          <th>Protocol</th>
+          <th>Description</th>
+          <th>Port</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HTTP</td>
+          <td>HyperText Transfer Protocol (web traffic)</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>HTTPS</td>
+          <td>Secure HTTP</td>
+          <td>443</td>
+        </tr>
+        <tr>
+          <td>FTP</td>
+          <td>File Transfer Protocol</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>SSH</td>
+          <td>Secure Shell</td>
+          <td>22</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <br><br>
+  <hr>
+
+<section id="mac">
+  <h2>3.) MAC Address: </h2>
+<p>A MAC (Media Access Control) Address is a unique, permanent serial number burned into every network-capable piece of hardware (your laptop's Wi-Fi card, your phone, your smart TV, the network port on your desktop).</p>
+<h4>The most common ways you'll see it displayed are:</h4> 
+<ol>
+   
+
+ <li>Colon-Separated (Most Common):
+    
+    3C:22:FB:A3:B4:C5</li>
+    
+<li>Hyphen-Separated (Common on Windows):
+    
+    3C-22-FB-A3-B4-C5</li> 
+    
+<li>Period-Separated (Used by Cisco and other network gear):
+    
+    3c22.fba3.b4c5</li> 
+    
+<li>No Separators (Less common, seen in some software):
+    
+    3C22FBA3B4C5</li> 
+</ol>
+
+<h3>How to Find MAC Address</h3>
+
+<h4>Windows</h4>
+<ol>
+  <li>Open Command Prompt:
+    <ul>
+      <li>Click the <b>Start Menu</b>.</li>
+      <li>Type <b>cmd</b> and press Enter.</li>
+      <li>(Alternatively, press <b>Win + R</b>, type <b>cmd</b>, and press Enter).</li>
+    </ul>
+  </li>
+  <li>Run the Command:
+    <pre><code>ipconfig /all</code></pre>
+  </li>
+  <li>If you only want to see the MAC addresses without all the other details, run:
+    <pre><code>getmac /v</code></pre>
+  </li>
+</ol>
+
+<h4>macOS</h4>
+<ol>
+  <li>Open Terminal:
+    <ul>
+      <li>Open <b>Spotlight Search</b> (press <b>Cmd + Space</b>).</li>
+      <li>Type <b>Terminal</b> and press Enter.</li>
+    </ul>
+  </li>
+  <li>Run the Command:
+    <pre><code>ifconfig</code></pre>
+  </li>
+</ol>
+</section>
+
+<hr>
+
+<section id="port">
+<h2>4.) Port Number</h2>
+
+<ul>
+  <li>A <b>Port Number</b> is a numerical identifier (0–65535) used with an IP address to identify specific services or applications on a device.</li>
+  <li>It is a <b>16-bit unsigned integer</b>, so there are 2<sup>16</sup> = 65,536 possible ports.</li>
+</ul>
+
+<h3>Categories of Ports</h3>
+<ol>
+  <li><b>Well-Known Ports (0-1023)</b>  
+    <ul>
+      <li>Reserved for standard services like:
+        <ul>
+          <li>80 - HTTP</li>
+          <li>443 - HTTPS</li>
+          <li>22 - SSH</li>
+          <li>25 - SMTP</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li><b>Registered Ports (1024-49151)</b>  
+    <ul>
+      <li>Used by user applications. Examples:
+        <ul>
+          <li>3000 - React/Node.js dev servers</li>
+          <li>27017 - MongoDB</li>
+          <li>3306 - MySQL</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li><b>Dynamic / Private Ports (49152-65535)</b>  
+    <ul>
+      <li>Used temporarily by client devices (e.g., when a browser connects to a server).</li>
+    </ul>
+  </li>
+</ol>
+</section>
+
+<hr>
+
+<section id="dns" >
+<h2>5.) DNS (Domain Name System)</h2>
+
+<ul>
+  <li><b>What it is:</b> DNS translates human-friendly domain names (like google.com) into computer-friendly IP addresses (like 142.250.72.206).</li>
+  <li><b>Why it matters:</b> Without DNS, we would have to remember long IP numbers instead of names.</li>
+</ul>
+
+<h3>How DNS Works (Simplified Steps)</h3>
+<ol>
+  <li><b>Check Cache:</b> Browser, OS, or router may already know the IP.</li>
+  <li><b>Recursive Resolver:</b> If not cached, your ISP's resolver (or public ones like Google 8.8.8.8, Cloudflare 1.1.1.1) finds it for you.</li>
+  <li><b>Root → TLD → Authoritative Servers:</b>  
+    <ul>
+      <li>Root servers - tell where to find <b>.com</b></li>
+      <li>TLD servers - tell where to find <b>google.com</b></li>
+      <li>Authoritative server - gives the final IP address</li>
+    </ul>
+  </li>
+  <li><b>Return Path:</b> The resolver caches the IP and sends it back to your computer.</li>
+  <li><b>Final Step:</b> Browser connects to the server using the IP (usually on port 443 for HTTPS).</li>
+</ol>
+<img src="https://www.grandmetric.com/wp-content/uploads/2018/12/xdomain-name-system-dns.jpg.pagespeed.ic.zviAwgYNKD.jpg" height="200px" width="400px"alt="dns-image"/>
+
+</section>
+<hr>
+
+<section id="webdev">
+<h2>6.) What is Web Development?</h2>
+<p>
+  Web development is the process of building and maintaining websites or web applications that run on the internet (or private networks).
+</p>
+
+<h3>Frontend (Client-Side)</h3>
+<p>
+  Everything you see on a website - design, layout, buttons, and images.<br>
+  It runs directly in your browser (Chrome, Edge, Firefox).
+</p>
+<h4>Built Using:</h4>
+<ul>
+  <li><b>HTML</b> → structure (skeleton of a site)</li>
+  <li><b>CSS</b> → styling (colors, fonts, layout)</li>
+  <li><b>JavaScript</b> → interactivity (sliders, forms, animations)</li>
+  <li><b>Frameworks/Libraries:</b> React, Angular, Vue</li>
+</ul>
+
+<h3>Backend (Server-Side)</h3>
+<p>
+  The behind-the-scenes part of a website.
+  It handles data, business logic, authentication, and payments.
+  Runs on servers and communicates with databases.
+</p>
+<ul>
+  <li><b>Common Languages & Frameworks:</b> Node.js, Python (Django/Flask), Java (Spring), PHP (Laravel), C# (ASP.NET)</li>
+</ul>
+
+<h3>Database</h3>
+<p>
+  Stores and manages data for websites and applications.
+</p>
+<h4>Types:</h4>
+<ul>
+  <li><b>SQL (Structured):</b> MySQL, PostgreSQL</li>
+  <li><b>NoSQL (Flexible):</b> MongoDB, Firebase</li>
+</ul>
+
+<img src="./diagrams/web dev.png" alt="Web Development Flow" width="600" height="500">
+</section>
+
+<hr>
+
+<section id="glossary">
+  <h2>7.)📖 Glossary of Terms</h2>
+<ol>
+  <li><strong>IP Address:</strong> A unique identifier assigned to each device on a network (IPv4 or IPv6).</li>
+  <li><strong>Public IP:</strong> Globally unique address used to identify your device on the internet.</li>
+  <li><strong>Private IP:</strong> Local address used only within private networks (e.g., 192.168.x.x).</li>
+  <li><strong>MAC Address:</strong> Permanent hardware ID assigned to a device’s network card.</li>
+  <li><strong>Port Number:</strong> A 16-bit number used with an IP to identify specific services (e.g., 80 for HTTP).</li>
+  <li><strong>Packet:</strong> Small unit of data transmitted across the network.</li>
+  <li><strong>Protocol:</strong> Rules for communication (e.g., TCP/IP, HTTP, HTTPS, FTP, SSH).</li>
+  <li><strong>DNS (Domain Name System):</strong> Translates domain names (google.com) into IP addresses.</li>
+  <li><strong>Router:</strong> Device that forwards data between networks.</li>
+  <li><strong>Switch:</strong> Device that connects multiple devices within a local network.</li>
+  <li><strong>Server:</strong> Computer that provides services or resources to clients.</li>
+  <li><strong>Client:</strong> Device/software that requests services from a server.</li>
+  <li><strong>Frontend:</strong> Client-side part of web development (HTML, CSS, JavaScript).</li>
+  <li><strong>Backend:</strong> Server-side part that handles logic, databases, and processing.</li>
+  <li><strong>Database:</strong> System for storing and managing data (SQL or NoSQL).</li>
+</ol>
+
+</section>
+
+</main>
+
+
+<a href="#top"><b>Back to top👆</b></a>
+<footer>
+  <p>© 2025 Web Dev Course - Day 1</p>
+</footer>
+<br>
+
+</body>
+</html>

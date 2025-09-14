@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Day 6: Media & Deployment 🎥🎵</title>
+</head>
+<body>
+
+<main>
+<h1>Day 6: Media & Deployment 🎥🎵</h1>
+
+<h2>Topics to be covered in this lecture:</h2>
+<ol>
+  <li><a href="#media-principle">HTML Media: First Principle</a></li>
+  <li><a href="#embedding-video">Embedding Video</a></li>
+  <li><a href="#embedding-audio">Embedding Audio</a></li>
+  <li><a href="#deployment-hosting">Deployment & Hosting</a></li>
+  <li><a href="#copyright-entities">Copyright & HTML Entities</a></li>
+  <li><a href="#glossary">Glossary of Terms</a></li>
+</ol>
+
+<header>
+  <nav>
+    <a href="../../index.html">Main</a> |
+    <a href="../../main.html">Home</a> |
+    <a href="../day5_forms/">Day 5</a> 
+  </nav>
+</header>
+<hr>
+
+<section id="media-principle">
+<h2>1.) HTML Media: First Principle</h2>
+<p>The web is more than text and images. Historically, video and audio required plugins like Flash or QuickTime, which were inefficient and insecure.</p>
+<p><strong>The Core Problem:</strong> How to embed video and audio in a standardized, native, plugin-free way?</p>
+<p><strong>Solution:</strong> HTML5 <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> tags.</p>
+</section>
+<hr>
+
+<section id="embedding-video">
+<h2>2.) Embedding Video</h2>
+<p>Basic video embedding:</p>
+<pre><code>&lt;video src="flower-video.mp4" controls&gt;&lt;/video&gt;</code></pre>
+<p>Result: a functional video player with play/pause, volume, timeline, and fullscreen controls.</p>
+<video controls width="300" height="300">
+  <source src="../../assets/videos/flower.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<h3>Advanced: Multiple Sources & Poster</h3>
+<p>To ensure browser compatibility, provide multiple formats and a poster image:</p>
+<pre><code>&lt;video width="320" height="240" controls poster="images/video-thumbnail.jpg"&gt;
+  &lt;source src="video.webm" type="video/webm"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Sorry, your browser does not support embedded videos.
+&lt;/video&gt;</code></pre>
+
+<h3>Accessibility with Captions</h3>
+<p>Use <code>&lt;track&gt;</code> for subtitles or captions:</p>
+<pre><code>&lt;video controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;track src="captions_en.vtt" kind="captions" srclang="en" label="English"&gt;
+  &lt;track src="subtitles_es.vtt" kind="subtitles" srclang="es" label="Español"&gt;
+&lt;/video&gt;</code></pre>
+</section>
+<hr>
+
+<section id="embedding-audio">
+<h2>3.) Embedding Audio</h2>
+<p>Embed sound files with player controls:</p>
+<pre><code>&lt;audio src="audio/theme-song.mp3" controls&gt;&lt;/audio&gt;</code></pre>
+<p>Supports <code>autoplay</code>, <code>loop</code>, and <code>muted</code> attributes, similar to video.</p>
+<audio controls muted>
+  <source src="../../assets/audio/countdown.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+</section>
+<hr>
+
+<section id="deployment-hosting">
+<h2>4.) Deployment & Hosting</h2>
+<p>Deploy your website using GitHub Pages, Netlify, or other hosting services. This makes your work publicly accessible.</p>
+<p><strong>Example:</strong> GitHub Pages automatically hosts your <code>index.html</code> from a repository.</p>
+</section>
+<hr>
+
+<section id="copyright-entities">
+<h2>5.) Copyright & HTML Entities</h2>
+<p>Two ways to create the © symbol:</p>
+
+<h3>1. Using Entity Name (Recommended)</h3>
+<pre><code>&amp;copy;</code></pre>
+<p>Example in footer:</p>
+<pre><code>&lt;footer&gt;
+  &lt;p&gt;Copyright &amp;copy; 2025 My Awesome Website. All Rights Reserved.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+<h3>2. Using Entity Number</h3>
+<pre><code>&amp;#169; 
+</code></pre>
+
+<p>Example in footer:</p>
+<pre><code>&lt;footer&gt;
+  &lt;p&gt;Copyright &amp;#169; 2025 My Awesome Website. All Rights Reserved.&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+
+<p><b>Output of both the HTML Entities will be:-</b> Copyright © 2025 My Awesome Website. All Rights Reserved.</p>
+
+
+<h3>Other Common Symbols</h3>
+<table border="1">
+  <tr><th>Symbol</th><th>Description</th><th>Entity Name</th><th>Entity Number</th></tr>
+  <tr><td>©</td><td>Copyright</td><td>&amp;copy;</td><td>&#169;</td></tr>
+  <tr><td>®</td><td>Registered Trademark</td><td>&amp;reg;</td><td>&#174;</td></tr>
+  <tr><td>™</td><td>Trademark</td><td>&amp;trade;</td><td>&#8482;</td></tr>
+  <tr><td>&lt;</td><td>Less-than</td><td>&amp;lt;</td><td>&#60;</td></tr>
+  <tr><td>&gt;</td><td>Greater-than</td><td>&amp;gt;</td><td>&#62;</td></tr>
+  <tr><td>&amp;</td><td>Ampersand</td><td>&amp;amp;</td><td>&#38;</td></tr>
+  <tr><td>"</td><td>Double Quote</td><td>&amp;quot;</td><td>&#34;</td></tr>
+  <tr><td>€</td><td>Euro Sign</td><td>&amp;euro;</td><td>&#8364;</td></tr>
+</table>
+</section>
+<hr>
+
+
+<section id="glossary">
+  <h2>6.)📖 Glossary of Terms</h2>
+  <ol>
+    <li><b><code>&lt;video&gt;</code>:</b> Embeds a video file directly into the webpage with native controls.</li>
+    <li><b><code>&lt;audio&gt;</code>:</b> Embeds an audio file with play, pause, and volume options.</li>
+    <li><b><code>&lt;source&gt;</code>:</b> Specifies multiple media files (different formats) for <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code>.</li>
+    <li><b><code>controls</code>:</b> Attribute that displays play, pause, timeline, and volume buttons for media.</li>
+    <li><b><code>autoplay</code>:</b> Automatically starts playing the media when the page loads (often requires <code>muted</code>).</li>
+    <li><b><code>loop</code>:</b> Restarts the media once it finishes, repeating endlessly.</li>
+    <li><b><code>muted</code>:</b> Starts the media without sound (can be unmuted by the user).</li>
+    <li><b><code>poster</code>:</b> Defines an image to show before the video starts playing.</li>
+    <li><b><code>&lt;track&gt;</code>:</b> Adds subtitles or captions for video content, improving accessibility.</li>
+    <li><b><code>&amp;copy;</code> / <code>&amp;#169;</code>:</b> HTML entity to display the © copyright symbol.</li>
+    <li><b>Deployment</b>: The process of publishing your website on the internet (e.g., GitHub Pages, Netlify).</li>
+    <li><b>Hosting</b>: A service that stores your website files and makes them accessible online.</li>
+  </ol>
+</section>
+
+<hr>
+<b>
+<section id="mini-sitemap">
+  <h2>Mini Sitemap</h2>
+  <nav>
+    <ul>
+      <li><a href="../../index.html">🏠 Home</a></li>
+    </ul>
+
+    <h3>Learning Days</h3>
+    <ul>
+      <li>
+        <a href="../day1_internet_working/">Day 1 - Introduction To Web Development | Internet Working</a>
+        <small> (How the internet works)</small>
+      </li>
+      <li>
+        <a href="../day2_html_basics/">Day 2 - What is HTML | Heading | Paragraph | Anchor tag | Image element</a>
+        <small> (First webpage, headings, paragraphs, images)</small>
+      </li>
+      <li>
+        <a href="../day3_lists_tables/">Day 3 - HTML Nested Lists & Tables</a>
+        <small> (Ordered, unordered, and definition lists + tables)</small>
+      </li>
+      <li>
+        <a href="../day4_file_path_boilerplate/">Day 4 - File Path in HTML | HTML BoilerPlate Code | DIV + Class + ID</a>
+        <small> (Absolute paths, Relative paths, boilerplate, div, span)</small>
+      </li>
+      <li>
+        <a href="../day5_forms/">Day 5 - HTML Forms</a>
+        <small> (Inputs, radio, checkbox, textarea, select)</small>
+      </li>
+       <li>
+        <a href="../day6_media_deploy/">Day 6 - Deploy Your First Project | Media Tag | Multi Page Website</a>
+        <small> (Video Tag, Audio Tag, Deployment of the website, Multi-Page website)</small>
+      </li>
+      
+    </ul>
+  </nav>
+</section>
+
+
+
+<br>
+<a href="#top"><b>Back to top 👆</b></a>
+
+<footer>
+  <p>© 2025 Web Dev Course - Day 6</p>
+</footer>
+
+</main>
+</body>
+</html>
